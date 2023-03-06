@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bluespak.FxbCatDAOImpl">
+
+
+	
+	
+	<select
+		id="getCatInfo"
+		parameterType="com.bluespak.vo.FxbCatVO"
+		resultType="com.bluespak.vo.FxbCatVO">
+	<![CDATA[
+		select * from fxbcat where catid = '${fxcat}'
+	]]>	
+	</select>	
+	
+</mapper>
+
+

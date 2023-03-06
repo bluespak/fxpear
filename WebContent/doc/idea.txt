@@ -1,0 +1,33 @@
+post_id
+
+Object=Table=Pear 
+
+post MoneyPear =pear up!!
+
+find MoneyPear = find Pear
+
+swap
+
+
+be partner = agree each others. = get Pear
+
+pear up!!
+
+
+Table Pear
+
+PSEQ  일련번호
+SUID 요청자아이디
+SPDT 요청일자
+SCCD 요청자 통화 코드
+SAMT 요청 금액
+TRDT 거래 요청 일자
+BCCD 희망 통화 코드
+EXLO 거래 희망 장소 (City Code)
+STAT 상태
+
+
+
+BUID
+REG_CUR
+

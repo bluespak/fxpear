@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Friends list</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+ <script src="http://connect.facebook.net/ko_KR/all.js"></script>
+ <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <script type="text/javascript">
+		var url_path = "https://graph.facebook.com/me/friends?access_token=CAAGzGLPnYukBAFHTFxyGEkRFhVaeMBQBZAhPSpZBhfKTrvXQHuNYQHmuGbzjOvq0rRsfFmKmMDtsRYxbh5B0xiwZAJkMsHfeX58J2OxS27Mg7d2WEyJZC4ZBKejkdUo7ZCNT3vmhhZBlFZACMM8BOpXH&callback=?";
+	//	var url_path = "feed";
+		$(document).ready(function(){
+			$("#friends").click(function(){
+
+
+
+			/*
+			  FB.api({
+					method:'fql.query',
+					query:'SELECT name FROM user WHERE  uid = 5526183'
+					},
+					function(response){
+						alert('Name is ' + response[0].name);
+					}
+			  );
+			*/
+
+			  $.ajax({type : "get",
+			         dataType : "json",
+					 url:url_path, 
+					 success:function(json){
+					 var table = "<table border='1'><tr> <th width='30'>����</th> <th width='30'>���</th> <th width='50'>����</th> <th width='100'>ID</th> <th width='100'>�̸�</th></tr>";
+						if($.isArray(json.data)){
+							$.each(json.data, function(i){
+								var name = json.data[i].name;
+								var id = json.data[i].id;
+								table += '<tr>';
+								table += '<td align="center"><input type="checkbox" name="uid" id="id" value="'+id+'#'+name+'" onclick="goPage(this);"></td>';
+								table += '<td  align="center">' + (i+1) + '</td>';
+								table += '<td><img src="http://graph.facebook.com/'+id+'/picture"></td>';
+								table += '<td>' + id + '</td>';
+								if (name) { // Ư�� �ʵ带 ���� �� �̷��� ǥ���� ���
+									table += '<td><a href="javascript:viewInfo(' + id + ')">' + name + '</a></td>';
+								}
+								table += '</tr>';
+						
+						});
+                    table += "</table>";
+                    $('#pnlDisplay').append(table); // �гο� �߰��ϱ�
+						}
+		//		alert(result);
+		//		$("div").html(result);
+					},
+					error : function(xhr, status, error){
+						alert(error);
+					}
+			  });
+			});
+		});
+
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId   : '478393655583465',
+				status  : true, // check login status
+				cookie  : true, // enable cookies to allow the server to access the session
+				xfbml   : true, // parse XFBML
+			});
+		}
+
+
+function viewInfo(id){
+/*
+	FB.ui(
+	  {
+		method: 'feed',
+		name: 'Facebook Dialogs',
+		link: 'http://developers.facebook.com/docs/reference/dialogs/',
+		picture: 'http://fbrell.com/f8.jpg',
+		caption: 'Reference Documentation',
+		description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+	  },
+	  function(response) {
+		if (response && response.post_id) {
+		  alert('Post was published.');
+		} else {
+		  alert('Post was not published.');
+		}
+	  }
+	);
+*/
+
+	var publish = {
+		  method: 'friends',
+		  id: id
+		};
+ 
+	FB.ui(publish);
+
+}
+
+
+function goPage(arg){
+	//alert(arg.value);
+}
+function invokeBPELProcess() {
+	var iWidth = 820;
+	var iHeight = 650;
+	var iLeft = (window.screen.availWidth - iWidth) / 2;
+	var iTop = (window.screen.availHeight - iHeight) / 2;
+	var sFeatures = "scrollbars=yes,status=no,toolbar=no,resizable=yes,left=" + iLeft + "," + "top=" + iTop + "," + "width=" + iWidth + "," + "height=" + iHeight;
+
+	window.open("", "InvokeBPELProcess" , sFeatures);
+	frm.target = 'InvokeBPELProcess';
+	frm.action = './start.jsp';
+	frm.submit();
+	frm.action = './friendlist.html';
+}
+
+
+function completeTask() {
+	var iWidth = 820;
+	var iHeight = 650;
+	var iLeft = (window.screen.availWidth - iWidth) / 2;
+	var iTop = (window.screen.availHeight - iHeight) / 2;
+	var sFeatures = "scrollbars=yes,status=no,toolbar=no,resizable=yes,left=" + iLeft + "," + "top=" + iTop + "," + "width=" + iWidth + "," + "height=" + iHeight;
+
+	window.open("", "completeBPELProcess" , sFeatures);
+	frm.target = 'completeBPELProcess';
+	frm.action = './complete.jsp';
+	frm.submit();
+	frm.action = './friendlist.html';
+}
+
+function reqSurvey(){
+
+	 var len = $('input:checkbox[name="uid"]:checked').length;
+
+	 if(len == 0){
+  		alert("ģ���� �����Ͽ� �ּ���");
+  		return;
+ 	}
+	//alert("view");
+
+	//var len = $('input:checkbox[name="uid"]:checked').length;
+
+	//alert(len);
+	var arr = Array();
+	var pstr = "";
+	var dlimit = "#";
+	var tcnt = 0;
+	$("input:checkbox[name=uid]:checked").each(function(i){
+		var str =$(this).val();
+		//alert(str);
+		arr.push(str);		
+		pstr = pstr+dlimit+str;
+		tcnt++;
+	});
+	//alert("arr:"+arr);
+//	alert(pstr);
+//	alert(tcnt);
+	//document.getElement
+	$("#userinfo").val(arr);
+	$("#totCnt").val(tcnt);
+	
+
+	iframSubmit();
+}
+
+
+function iframSubmit(){
+	var frm = document.frm;
+	frm.action = "requestSurvey.jsp";
+	frm.method="post";
+	frm.target = "rlt";	
+	frm.submit();
+
+}
+                      
+
+	</script>
+
+</head>
+<body>
+
+<button id="friends">getFrindes</button>
+<button id="askSurvey" onclick="javascript:reqSurvey()">Request Survey</button>
+<div id="pageContainer">
+	<!-- ��� S -->
+	<div class="bizList">
+
+		<div id="pnlDisplay"></div>
+	
+	</div>
+</div>	
+
+<form name="frm">
+<!-- input type="hidden" name="templateName" value="CMGudnCdReq"-->
+<input type="hidden" name="templateName" value="BPELWithSNSProcess">
+<input type="hidden" name="processName" value="processName"> <br>
+<input type="hidden" name="userid" value="userid"> <br>
+
+<!--input type=button onclick="javascript:invokeBPELProcess()" value="invokeBPELProcess"><br><br><br><br-->
+
+
+<!--input type="hidden" name="processInstanceId" value="PI..."-->
+<!--input type="hidden" name="taskname" value="CMGudnCdReq_GudnCdReg"-->
+<!--input type="hidden" name="taskname" value="BPELWithSNSProcess"> <br-->
+<!-- input type=button onclick="javascript:completeTask()" value="Complete"><br><br><br><br-->
+
+ <input type=hidden name="pid" value=""/>
+ <input type=hidden name="userinfo" id="userinfo"/>
+
+ 
+ <iframe name="rlt" id="rlt" scrolling="no" marginwidth="0px" marginheight="0px" frameborder="0" style="width:100%;height:100%;"></iframe>
+</form>
+</body>
+</html>
+

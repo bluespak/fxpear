@@ -1,0 +1,7 @@
+<html>
+    <body>
+        #foreach ($xmen in $xmens)
+            $xmen<br />
+        #end
+    </body>
+</html>

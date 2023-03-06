@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "dtds/spring-beans.dtd">
+<beans>
+	<bean
+		id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property
+			name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property
+			name="url"
+			value="jdbc:mysql://localhost:3306/fxpear?useUnicode=yes&amp;characterEncoding=UTF8" />
+		<property
+			name="username"
+			value="fxpear" />
+		<property
+			name="password"
+			value="Jeremy83" />
+		<property
+			name="defaultAutoCommit"
+			value="false" />
+	</bean>
+	<bean
+		id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property
+			name="dataSource"
+			ref="dataSource" />
+	</bean>
+	<bean
+		id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property
+			name="dataSource"
+			ref="dataSource" />
+		<property
+			name="mapperLocations"
+			value="classpath:sqlmaps/*.xml" />
+		<property
+			name="configLocation"
+			value="WEB-INF/mybatis-config.xml" />
+	</bean>
+</beans>

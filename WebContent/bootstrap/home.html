@@ -1,0 +1,175 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign in &middot; Twitter Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+	<script>
+		function login(){
+			if(document.loginForm.id.value == ""){
+				alert ("No ID");
+				return;
+			}
+			document.loginForm.action = "./login.fx";
+			loginForm.submit();
+		}
+		
+		function logout(){
+			document.loginForm.action = "./logout.fx";
+			loginForm.submit();
+		}		
+	</script>
+	
+    <!-- Le styles -->
+    
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background: #555;
+        
+        .form-signin {
+        max-width: 800px;
+        padding: 30px 29px 10px 40px;
+        margin: 180px auto 20px;
+        background-color: rgba(20,20,20,.6);
+
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 0;
+      }
+    
+      
+    </style>
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-formhelpers.css" rel="stylesheet">
+    <link href="../bootstrap/css/pear.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-formhelpers-countries.flags.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-formhelpers-currencies.flags.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="ico/favicon.png">
+  </head>
+
+ <body style="background: #f9f9f9">
+
+      <div class="post">
+        <div class="container" style="display: inline">
+        <i class="icon-flag-AUD"></i>
+          </div>
+          <hr>
+          <div class="span3">
+          <button class="btn btn-primary">Contact Poster</button>
+          <button class="btn">Buy</button></div>
+          <div class="span2">
+          <img src="../bootstrap/img/f_logo.png">
+          <img src="../bootstrap/img/t_logo.png">
+          <img src="../bootstrap/img/g_logo.png">
+          <img src="../bootstrap/img/p_logo.png">
+          </div>
+      </div>
+      <div class="post">
+        <span>
+        <img class="img-polaroid" src="../bootstrap/img/au.png">
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">AUD</h5>
+          <h2 style="display: inline; vertical-align: middle; font-weight: 400; background: #fff; padding: 20px">$400</h2>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Posted on: 29/06/2013</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Expires on: 29/06/2013</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Location: Sydney Airport</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">share on facebook</h5>
+          <hr>
+          <button>Contact Poster</button><button>Trade</button>
+        </span>
+      </div>
+      <div class="post">
+        <span>
+        <img class="img-polaroid" src="../bootstrap/img/au.png">
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">AUD</h5>
+          <h2 style="display: inline; vertical-align: middle; font-weight: 400; background: #fff; padding: 20px">$400</h2>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Posted on: 29/06/2013</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Expires on: 29/06/2013</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Location: Sydney Airport</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">share on facebook</h5>
+          <hr>
+          <button>Contact Poster</button><button>Trade</button>
+        </span>
+      </div>
+      <div class="post">
+        <span>
+        <img class="img-polaroid" src="../bootstrap/img/au.png">
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">AUD</h5>
+          <h2 style="display: inline; vertical-align: middle; font-weight: 400; background: #fff; padding: 20px">$400</h2>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Posted on: 29/06/2013</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Expires on: 29/06/2013</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Location: Sydney Airport</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">share on facebook</h5>
+          <hr>
+          <button>Contact Poster</button><button>Trade</button>
+        </span>
+      </div>
+      <div class="post">
+        <span>
+        <img class="img-polaroid" src="../bootstrap/img/au.png">
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">AUD</h5>
+          <h2 style="display: inline; vertical-align: middle; font-weight: 400; background: #fff; padding: 20px">$400</h2>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Posted on: 29/06/2013</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Expires on: 29/06/2013</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">Location: Sydney Airport</h5>
+          <h5 style="display: inline; vertical-align: middle; font-weight: 300; padding: 10px">share on facebook</h5>
+          <hr>
+          <button>Contact Poster</button><button>Trade</button>
+        </span>
+      </div>
+    <div class="footer" align="center">
+      
+    </div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../bootstrap/js/jquery.js"></script>
+    <script src="../bootstrap/js/bootstrap-transition.js"></script>
+    <script src="../bootstrap/js/bootstrap-alert.js"></script>
+    <script src="../bootstrap/js/bootstrap-modal.js"></script>
+    <script src="../bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="../bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="../bootstrap/js/bootstrap-tab.js"></script>
+    <script src="../bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="../bootstrap/js/bootstrap-popover.js"></script>
+    <script src="../bootstrap/js/bootstrap-button.js"></script>
+    <script src="../bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="../bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="../bootstrap/js/bootstrap-typeahead.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-selectbox.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-datepicker.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-datepicker.en_US.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-currencies.en_US.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-currencies.js"></script>
+  </body>
+</html>

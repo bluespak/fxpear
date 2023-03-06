@@ -1,0 +1,9 @@
+<html>
+    <body>
+    	
+        You can change your password in this mail.
+        <BR>
+        <img src="http://graph.facebook.com/${userinfo.fbuid}/picture?width=23&height=23"> ${userinfo.fname} ${userinfo.lname} 
+        <BR>Click this link  http://${hostname}/fxpear/passwordAuth.fx?id=${userinfo.id}&auth=${userinfo.auth}
+    </body>
+</html>

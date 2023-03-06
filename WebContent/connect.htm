@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+</HEAD>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script>
+ FB.init({
+   appId  : '478393655583465',
+   status : true, // check login status
+   cookie : true, // enable cookies to allow the server to access the session
+   xfbml  : true,  // parse XFBML
+   oauth  : true
+ });
+/*
+(function(d){
+	var js, id = "facebook-jssdk"; if(d.getElementById(id)) { return;}
+	js = d.createElement("script"); js.id = id; js.async = true;
+	js.src ="//connect.facebook.net/en_US/all.js";
+	d.getElementsByTagName("head")[0].appendChild(js);
+}(document));
+ */
+ 
+FB.getLoginStatus(function(response) {
+alert('getLoginStatus');
+ if (response.session) {
+	alert('login aa');
+   // logged in and connected user, someone you know
+ } else {
+	alert('no session login');
+	 FB.login(handleSessionResponse);
+
+   // no user session available, someone you dont know
+ }
+});
+
+FB.login(function(response) {
+	alert("FB.login");
+ if (response.session) {
+   // user successfully logged in
+ } else {
+   // user cancelled login
+ }
+});
+
+
+
+
+
+//FB.getLoginStatus(handleSessionResponse);
+ function handleSessionResponse(response) { 
+  if (!response.session) { 
+   // Open login dialog box
+   FB.login(handleSessionResponse);
+   return; 
+  } else{
+   // already logged in
+  }
+ }
+
+ var fbloginChk = 0;
+ var FBtoken;
+ function loginFB(){
+	 alert("loginFB");
+	 FB.login(function(response){
+		 
+		if(response.authResponse){
+				FBtoken = response.authResponse.accessToken;
+				fbloginChk = 1;
+				alert("tokken...="+FBtoken);
+			 // callback area
+		 }else {
+			// error	 
+				fbloginChk = 0;
+				alert("fail to login to facebook.");
+		 }
+	 },
+	 {scope:"user_about_me,publish_stream,read_friendlists,offline_access,email,user_birthday"}
+	);
+ }
+
+//로그인 유저 정보 가져오기 
+function getUser(){
+ FB.getLoginStatus(handleSessionResponse);
+  function handleSessionResponse(response) { 
+   if (!response.session) {
+    //
+   } else{
+    FB.api( 
+    {
+      method: 'fql.query', 
+      query: 'select uid,name,email,pic_square from user where uid  = "' + FB.getSession().uid + '"'
+     }, 
+    function(response) {
+    	 alert(response.length);
+      for(var i=0; i < response.length; i++){
+       response[i].uid; //유저아이디
+       response[i].pic_square; // 사진
+       response[i].name; // 이름
+       response[i].email; // 이메일주소
+      }
+    } 
+    );
+   }
+  }  
+}
+
+function getMyProfile(){
+	alert("getMyProfile");
+	FB.api('/me',function(user){
+		var myName = user.name;
+		var myEmail = user.email;
+		var myId = user.id;
+	});
+	FB.api("/me/pictur?type=large";function(data){
+		var myImg = data.data.url;
+	});
+}
+
+//내친구 리스트 가져오기 
+
+function getFriends(){
+  FB.getLoginStatus(handleSessionResponse);
+  alert("getFriends");
+    function handleSessionResponse(response) { 
+      if (!response.session) { 
+    	  
+    	  alert("no session getFriends");
+         //
+      } else{
+    	  alert("getFriends session");
+        FB.api( 
+         {
+            method: 'fql.query', 
+            query: 'SELECT uid, name, email, birthday, pic_square, online_presence  FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
+         }, 
+        function(response) {
+          for(var i=0; i < response.length; i++){ 
+             response[i].uid;
+             response[i].pic_square;
+             response[i].name;
+             response[i].birthday;
+             response[i].email;
+             response[i].online_presence;
+          }
+        } 
+        );
+      }
+   }
+ }
+
+//내 담벼락의 글 가져오기 
+
+function getPersonalFeed(fbId){
+   FB.getLoginStatus(handleSessionResponse);
+     function handleSessionResponse(response) { 
+        if (!response.session) { 
+            alert("no login");
+        } else{
+          var path = '/me/feed';
+          var num = 10;
+          FB.api(path, { limit: num }, function(response) {
+            for (var i=0, l= response.data.length; i< l; i++) {
+               var info = response.data[i];
+               if (info.message) {
+                  info.id; // 글아이디
+                  info.updated_time; // 갱신일
+                  info.message; //글내용
+                  info.from.name; //글쓴이
+                }
+             }
+          });
+        }
+    }
+  }
+ 
+
+//내 담벼락에 새글 쓰고 id가져오기 
+
+function postPersonalFeed(fbId){
+  FB.getLoginStatus(handleSessionResponse);
+    function handleSessionResponse(response) { 
+      if (!response.session) { 
+         alert("No login");
+      } else{
+         var path = '/me/feed';
+         var body = document.getElementById("info1").value;
+         FB.api(path, 'post', { message: body }, function(response) {
+             if (!response || response.error) {
+                 alert("error");
+              } else {
+                 alert("successful with id [" + response.id + "]");
+              }
+         });
+      }
+   }
+ }
+
+//내 담벼락의 특정 글에 코멘트 달고 글 id가져오기 
+
+function postPersonalComment(postId){
+   FB.getLoginStatus(handleSessionResponse);
+       function handleSessionResponse(response) { 
+         if (!response.session) {
+            alert("No login");
+          } else{
+            var path = '/'+postId + '/comments';
+            FB.api(path, 'post', { message: body }, function(response) {
+               if (!response || response.error) {
+                  alert("error");
+               } else {
+                  alert("successful with id [" + response.id + "]");
+               }
+            });
+          }
+     }
+ }
+
+//내 담벼락의 특정 글의 코멘트 가져오기 
+
+ function getPersonalComments(postId){
+   FB.getLoginStatus(handleSessionResponse);
+     function handleSessionResponse(response) { 
+       if (!response.session) { 
+          alert("No login");
+       } else{
+          var path = '/'+postId+'/comments';
+          var num = 10;
+          FB.api(path, { limit: num }, function(response) {
+              for (var i=0, l= response.data.length; i< l; i++) {
+                 var info = response.data[i];
+                 info.id;
+                 info.message;
+              }
+          });
+       }
+    }
+ }
+
+//그룹 리스트 가져오기 
+
+ function getGroupList(){
+   FB.getLoginStatus(handleSessionResponse);
+     function handleSessionResponse(response) { 
+       if (!response.session) { 
+          alert("No login");
+        } else{
+           FB.api( 
+           {
+              method: 'fql.query', 
+              query: 'SELECT gid, name, description, creator, icon FROM group WHERE gid IN (SELECT gid FROM group_member WHERE uid = me())'
+           }, 
+           function(response) { 
+              for(var i=0; i < response.length; i++){
+                response[i].gid;
+                response[i].icon;
+                response[i].name;
+                response[i].description;
+
+           }
+        });
+      }
+   }
+ }
+
+//그룹 담벼락의 글 가져오기 
+
+function getGroupFeed(groupId){
+   FB.getLoginStatus(handleSessionResponse);
+     function handleSessionResponse(response) { 
+       if (!response.session) { 
+         alert("no login");
+       } else{
+          var path = '/' + groupId + '/feed';
+          var num = 5;
+          FB.api(path, { limit: num }, function(response) {
+              for (var i=0, l= response.data.length; i< l; i++) {
+                  var info = response.data[i];
+                  if (info.message) {
+                     info.id;
+                     info.updated_time;
+                     info.message;
+                     info.from.name;
+                  }
+               }
+         });
+      }
+    }
+ }
+
+//그룹 담벼락의 특정 글에 코멘트를 쓰고 id가져오기 
+
+function postGroupComment(postId){
+   FB.getLoginStatus(handleSessionResponse);
+     function handleSessionResponse(response) { 
+        if (!response.session) {
+            alert("No login");
+        } else{
+            var path = '/'+postId + '/comments';
+            FB.api(path, 'post', { message: body }, function(response) {
+                if (!response || response.error) {
+                    alert("error");
+                 } else {
+                     alert("successful with id [" + response.id + "]");
+                 }
+             });
+       }
+    }
+ }
+
+//그룹 담벼락의 특정 글의 코멘트 가져오기 
+
+ function getGroupComments(postId){
+    FB.getLoginStatus(handleSessionResponse);
+      function handleSessionResponse(response) { 
+         if (!response.session) { 
+            alert("No login");
+         } else{
+            var path = '/'+postId+'/comments';
+            var num = 10;
+            FB.api(path, { limit: num }, function(response) {
+            for (var i=0, l= response.data.length; i< l; i++) {
+               var info = response.data[i];
+               info.id;
+               info.message;
+            }
+         });
+       }
+    }
+ }
+
+//그룹 담벼락에 새글 쓰고 id가져오기 
+
+ function postGroupFeed(groupid){
+    FB.getLoginStatus(handleSessionResponse);
+       function handleSessionResponse(response) { 
+         if (!response.session) { 
+            alert("No login");
+         } else{
+            var path = '/'+groupid+'/feed';
+            FB.api(path, 'post', { message: body }, function(response) {
+               if (!response || response.error) {
+                  alert("failed");
+               } else {
+                  alert("successful with id [" + response.id + "]");
+               }
+            });
+         }
+    }
+ }
+
+
+
+</script>
+
+
+<BODY >
+<button id="fb-login-status" onClick="javascript:FB.getLoginStatus()">LoginStatus</button>
+<button onClick="javascript:loginFB()">Login</button>
+<button onClick="javascript:getFriends()">getFriends</button>
+<button onClick="javascript:getUser()">getUser</button>
+<button onClick="javascript:getMyProfile()">getMyProfile</button>
+<button onClick="javascript:alert('hello')">alert</button>
+
+
+</BODY>
+</HTML>

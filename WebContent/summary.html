@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../bootstrap/css/style.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-formhelpers.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-formhelpers-countries.flags.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-formhelpers-currencies.flags.css" rel="stylesheet">
+    <link href="../bootstrap/css/flags32.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <style>
+      body {
+        background: url(../bootstrap/img/bbgg.png);
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <script src="../bootstrap/js/jquery.js"></script>
+    <script src="../bootstrap/js/jquery.timeago.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+  jQuery("abbr.timeago").timeago();
+});
+    </script>
+    <script>
+    var currency_round=true;
+    var currency_decimalSeparator='.';
+    var currency_thousandsSeparator=',';
+    var currency_thousandsSeparatorMin=3;
+    </script>
+    <script type="javascript">
+      function changecss(theClass,element,value) {
+ //Last Updated on May 21, 2008
+ //documentation for this script at
+ //http://www.shawnolson.net/a/503/altering-css-class-attributes-with-javascript.html
+  
+    </script>
+    
+    
+    <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../ico/favicon.png">
+                                    
+                                    
+                                      <?php
+function currency($from_Currency,$to_Currency,$amount) {
+$amount = urlencode($amount);
+$from_Currency = urlencode($from_Currency);
+$to_Currency = urlencode($to_Currency);
+$url = "http://www.google.com/ig/calculator?hl=en&q=$amount$from_Currency=?$to_Currency";
+$ch = curl_init();
+$timeout = 0;
+curl_setopt ($ch, CURLOPT_URL, $url);
+curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch,  CURLOPT_USERAGENT , "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+$rawdata = curl_exec($ch);
+curl_close($ch);
+$data = explode('"', $rawdata);
+$data = explode(' ', $data['3']);
+$var = $data['0'];
+return round($var,3);
+}
+
+echo currency("GBP","USD",1); 
+?>
+                                  
+  </head>
+
+  <body>
+    
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Project name</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="span4 offset2 pad bg" style="margin-bottom: 10px">
+      <div class="span4" style="margin-left: 0px; margin-bottom: 10px">
+        <div class="span1" style="margin-left: 0px; margin-right: 5px; font-size: 11px; font-weight: 300; max-width: 50px"><img class="img-polaroid" src="../bootstrap/img/pink.jpg"></div>
+        <div class="span3">
+          <ul class="unstyled">
+            <li><a>Madeleine-Jayne </a>wants to exchange</li>
+            <li><p class="lead" style="margin: 0px; font-size: 24px">&#8361; 3,000,000.00 to AUD</p></li>
+            status: <span class="label label-info">open to bids</span>
+          </ul>
+        </div>
+        <hr class="dark span4" style="margin-bottom: 10px; margin-top: 10px">
+          <ul class="unstyled inline span4" style="margin: 0px">
+            <li><i class="icon-user"></i> Posted by: Madeleine-Jayne</li>
+            <li><i class="icon-time"></i> Expires in <a>2 days</a></li>
+          </ul>
+        <hr class="dark span4" style="margin-bottom: 10px; margin-top: 10px">
+      </div>
+      
+      <div class="span4" align="center" style="margin-left: 0px">
+        <div class="alert-warning" style="padding: 15px; height: 80px; background: url(../bootstrap/img/map.jpg)">
+                
+              </div><div style="background: #fff">
+                  <ul style="padding: 15px; font-size: 12px" class="unstyled inline">
+                    <li><i class="icon-calendar"></i> Exchange date: 29/06/2013</li>
+                    <li><i class="icon-time"></i> Exchange time: 3:00pm</li>
+                  </ul>
+               </div>
+        
+        <div class="something" style="background: #fff">
+          <p class="alert-grey" style="font-weight: 300"><i class="icon-flag-KR"></i> KRW &#8361; 1,000.00 = AUD $ <script>currency_show_conversion(1000,"KRW","AUD");</script> <i class="icon-flag-AU"></i><br>
+          <a>Sell: 0.92</a>&nbsp;&nbsp;<a>Buy: 0.97</a>
+          <p><a>W 3,000,000.00</a><br><a>$ <script>currency_show_conversion(1000,"KRW","AUD");</script></a></p></p>
+          <p><i class="icon-camera-retro icon-3x"></i> icon-camera-retro</p>
+        </div>
+      <br>
+            <button class="btn-large  btn-success" style="margin-top: -3px; height: 60px; margin-left: 5px; font-size: 24px">Pear up<br><small style="font-size: 13px; font-weight: 300; letter-spacing: 1px">with Madeleine-jayne</small></button>
+            
+              </div>
+    </div>
+    
+    <div class="span4 pad bg">
+      <p class="">You're talking to <a>Madeleine-Jayne</a>
+        <div class="btn-group" style="margin-top: -4px"><button class="btn btn-mini" style="padding: 5px; font-size: 14px; font-weight: 300"><img class="img-rounded" src="../bootstrap/img/pink2.jpg"> Select someone else </button>
+              <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown" style="padding: 15px 20px">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#"><img src="../bootstrap/img/pink2.jpg"> Jeremy</a></li>
+                <li><a href="#"><img src="../bootstrap/img/pink22.jpg"> Alvin</a></li>
+              </ul>
+            </div>
+        </p> 
+  
+      <p><i class="icon-comment"> </i> (3) comments</p>
+      <hr class="dark" style="margin: 10px">
+      
+      <div class="span4" style="height: 340px; overflow-y: auto; margin-left: 0px !important">
+      <div class="post-img">
+        <img style="position: absolute; margin-top: -56px" src="../bootstrap/img/pink2.jpg"><a style="position: absolute; margin-top: -31px; margin-left: 45px">Madeleine-Jayne</a>
+        <p>I'm looking for a skilled artist who can apply calligraphic styles to vertical surfaces. My business revives unused urban walls by turning them green.</p>
+        <p class="pd">5 mins ago <i class="icon-flag"></i> Flag this comment as inappropriate</p>
+      </div>
+      
+      <div class="post-img">
+        <img style="position: absolute; margin-top: -56px" src="../bootstrap/img/pink2.jpg"><a style="position: absolute; margin-top: -31px; margin-left: 45px">Madeleine-Jayne</a>
+        <p>I'm looking for a skilled artist who can apply calligraphic styles to vertical surfaces. My business revives unused urban walls by turning them green.</p>
+        <p class="pd"><abbr class="timeago" title="2013-06-25T12:45:17Z"></abbr> <div style="display: inline" class="btn-group">
+  <button class="btn btn-mini"><i class="icon-flag"></i></button>
+  <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" style="font-size: 12px">
+    <li style="margin-left: 5px">Flag this comment</li>
+    <li class="divider"></li>
+    <li><a>Suspicious or misleading</a></li>
+    <li><a>Inappropriate/offensive</a></li>
+    <li><a>Spam</a></li>
+  </ul>
+</div></p>
+      </div>
+      
+      <div class="post-img">
+        <img style="position: absolute; margin-top: -56px" src="../bootstrap/img/pink2.jpg"><a style="position: absolute; margin-top: -31px; margin-left: 45px">Madeleine-Jayne</a>
+        <p>I'm looking for a skilled artist who can apply calligraphic styles to vertical surfaces. My business revives unused urban walls by turning them green.</p>
+        <p class="pd">5 mins ago</p>
+      </div>
+      
+      <div class="post-img">
+        <img style="position: absolute; margin-top: -56px" src="../bootstrap/img/pink2.jpg"><a style="position: absolute; margin-top: -31px; margin-left: 45px">Madeleine-Jayne</a>
+        <p>I'm looking for a skilled artist who can apply calligraphic styles to vertical surfaces. My business revives unused urban walls by turning them green.</p>
+        <p class="pd">5 mins ago</p>
+      </div>
+
+      <div class="post-img">
+        <img style="position: absolute; margin-top: -56px" src="../bootstrap/img/pink2.jpg"><a style="position: absolute; margin-top: -31px; margin-left: 45px">Madeleine-Jayne</a>
+        <p>Can we meet at perth airport tomorrow?</p>
+        <p class="pd">5 mins ago</p>
+      </div>
+    </div>
+    
+    <div class="span4" style="margin-left: 0px; margin-top: 10px;">
+      <div class="span2" style="">
+        <p>
+          <textarea style="width: 228px" placeholder="Type your comment.."></textarea>
+        </p>
+      </div>
+      <div class="span2" align="right"><button style="margin: 2px 5px" class="btn btn-large btn-info">Send</button></div>
+    </div>
+    
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../bootstrap/js/bootstrap-formhelpers-currencies.en_US.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-currencies.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-countries.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-countries.en_US.js"></script>
+    <script src="../bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="../bootstrap/js/bootstrap-tab.js"></script>
+  </body>
+</html>
+

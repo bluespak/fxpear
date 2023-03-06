@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+    <title>Jumbotron Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/font-awesome.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <style>
+        body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+        }
+
+/* Space out content a bit */
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 780px;
+    background: #f5f5f5;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding-top: 10px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 10px 0 10px;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+.hideo {
+	display: none;
+}
+
+.unhideo {
+	display: block;
+}
+
+    </style>
+    
+    <!-- custom JS -->
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bootstrap3/js/html5shiv.js"></script>
+      <script src="../bootstrap3/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="row">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle btn-small" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row marketing">
+        <div class="col-lg-12">
+					<h1><small>Be</small>	excellent<small> to each other.</small></h1> <a id="more" href="#">more »</a>
+					<h1 id="and" class="hideo">And...</h1>
+        </div>    
+      </div>
+
+      <div class="footer">
+        <p>© Company 2013</p>
+      </div>
+
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/twitter-typeahead.js"></script>
+
+		<script type="text/javascript">
+ 
+		    $("#more").click(function () {
+ 
+				$('#and').removeClass('hideo');
+ 
+			  $('#and').addClass('unhideo');
+ 
+		    });
+ 		</script>
+
+
+
+</body></html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bluespak.FxBoardDAOImpl">
+
+
+	<insert
+		id="insertBoard"
+		parameterType="com.bluespak.vo.FxBoardVO">
+	<![CDATA[
+			 insert into fxboard (fxcat, uid, wrdt, title, story)
+	   values (#{fxcat}, #{uid}, sysdate(), #{title}, #{story})
+	]]>	
+	</insert>
+		
+	<update
+		id="updateBoard"
+		parameterType="com.bluespak.vo.FxBoardVO">
+	<![CDATA[
+			 update fxboard set title = #{title}, story = #{story}
+			 where fxseq = #{fxseq}  
+	]]>	
+	</update>	
+	
+	<select
+		id="getBoardList"
+		parameterType="String"
+		resultType="com.bluespak.vo.FxBoardVO">
+		<![CDATA[
+			select * from fxboard a, fxuser b where a.fxcat= #{fxcat} and a.bstat = '0' and a.uid = b.id order by wrdt desc 
+		]]>	 
+	</select>	
+	
+	
+	<select
+		id="getBoardView"
+		parameterType="com.bluespak.vo.FxBoardVO"
+		resultType="com.bluespak.vo.FxBoardVO">
+	<![CDATA[
+		select * from fxboard a, fxuser b where a.uid = b.id and a.fxseq = #{fxseq}  
+	]]>	
+	</select>	
+	
+		<update
+		id="changeStatus"
+		parameterType="com.bluespak.vo.FxBoardVO">
+		<![CDATA[
+		update fxboard set bstat = '1' where fxseq = #{fxseq}
+		]]>	
+	</update>	 
+	
+</mapper>
+
+

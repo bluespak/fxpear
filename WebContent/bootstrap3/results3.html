@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+		
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    
+    <title>Jumbotron Template for Bootstrap</title>
+		
+    <script>
+        function hideAddressBar()
+				{
+  if(!window.location.hash)
+  {
+      if(document.height < window.outerHeight)
+      {
+          document.body.style.height = (window.outerHeight + 100) + 'px';
+      }
+ 
+      setTimeout( function(){ window.scrollTo(0, 1); }, 100 );
+  }
+}
+ 
+window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
+window.addEventListener("orientationchange", hideAddressBar );
+    </script>
+		
+
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../bootstrap3/css/font-awesome.css" rel="stylesheet">
+    <link href="../bootstrap3/css/style.css" rel="stylesheet">
+    <link href="../bootstrap3/css/flags16.css" rel="stylesheet">
+    <link href="../bootstrap3/css/slider.css" rel="stylesheet">
+    <link href="../bootstrap3/css/daterangepicker.css" rel="stylesheet">
+    <style>
+        body {
+					padding: 50px 0 0;
+					height: 100% !important;
+					overflow-y: hidden;;
+				line-height: 1;
+        }
+    </style>
+    
+    
+    <style>
+      #map_canvas {
+        margin: 0;
+        padding: 0;
+        height: inherit;
+      }
+    </style>
+
+		
+		
+ <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+		
+  <script>
+        var map;
+        function initialize() {
+          var mapOptions = {
+            zoom: 8,
+            center: new google.maps.LatLng(-34.397, 150.644),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          map = new google.maps.Map(document.getElementById('map_canvas'),
+              mapOptions);
+        }
+                
+    </script>
+    
+    <!-- custom JS -->
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bootstrap3/js/html5shiv.js"></script>
+      <script src="../bootstrap3/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body onload="initialize()">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#postModal" data-target="#postModal">Browse currencies</a></li>
+	   			 	<li><a href="#jjj">Post your currency</a></li>
+						<li class="visible-sm visible-md visible-lg"><a href="#jjj" data-toggle="tab">Filter</a></li>
+						<li class="visible-sm visible-md visible-lg"><a href="#list" data-toggle="tab">List</a></li>
+          </ul>
+			    <form name="mbloginForm" METHOD=POST accept-charset="UTF-8">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown-toggle">
+						<a data-toggle="dropdown" href="#">Sign in</a>
+						<ul class="dropdown-menu navform" role="menu" aria-labelledby="dLabel">
+						  <input type="email" placeholder="Email" class="navformelement form-control" name="id">
+						  <input type="password" placeholder="Password" class="navformelement form-control" name="password">
+						  <button class="btn btn-primary navformelement form-control" onClick="javascript:login('mblogin');return false;">Sign in</button>
+						</ul>
+					</li>
+					<li><a href="#registModal" data-toggle="modal" class="nav">Sign up</a></li>
+				</ul>
+			     </form>
+        </div><!--/.navbar-collapse -->
+        <div id="myTab" class="navbar-header">
+          <button type="button" class="navbar-toggle btn-small" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      		<a onClick="javascript: showmap()" href="#list" data-toggle="tab" class="navbar-toggle navbaritem btn-small">List</a>
+					<a onClick="javascript: showmap()" href="#jjj" data-toggle="tab" class="navbar-toggle navbaritem btn-small">filter</a>
+					<a onClick="javascript: hidemap()" class="navbar-toggle navbaritem btn-small">map</a>
+        </div>
+      </div>
+		
+    </div>
+
+    <div class="row" style="height: 100%; margin: 0; overflow: hidden">
+            <div id="results-wrapper" class="tab-content col-sm-5" style="height: 100%; padding: 10px 10px 0px; background: #eee; overflow: scroll;
+-webkit-overflow-scrolling:touch; border-right: 1px solid #ddd;">
+							<div id="list" class="tab-pane active">
+
+										<ul class="media-list">
+										  <li class="media" style="padding: 15px 8px; margin-top: 0">
+										    <a class="pull-left" href="#">
+										      <img style="max-height: 52px" class="media-object" src="http://graph.facebook.com/jeremy.delmore.5/picture?width=52&amp;height=52&amp;" alt="">
+										    </a>
+												<div class="btn-group pull-right m0" style="margin: 0 0 5px">
+												<button type="button" class="btn btn-money btn-default"><h3 class="m0"><small>USD</small> $<b>1,000.00</b></h3></button>
+												<button type="button" class="btn btn-money btn-default" style="background: rgba(60,211,168,.90) !important; border: #fff; color: #fff"><h4 class="m0">»</h4></button>
+											</div>
+										    <div class="media-body pull-left">
+										      <ul class="list-unstyled m0">
+											      <li class="mo f16">
+															<b style="font-size: 16px"><i class="flag16 US"></i> USD <i class="icon-exchange"></i> <i class="flag16 AU"></i> AUD</b>
+														</li>
+														<li style="margin: 3px 0;"><i class="icon-map-marker"></i> (SYD) 1 Airpot Dr </a></li>
+														<li><a class="pull-left" href="#">Available: 29/11/2013 <i class="icon-time"> 16:00</i></a></li>
+													</ul>
+										    </div>
+										  </li>
+										</ul>
+										<ul class="media-list">
+										  <li class="media" style="padding: 15px 8px; margin-top: 0">
+										    <a class="pull-left" href="#">
+										      <img style="max-height: 52px" class="media-object" src="http://graph.facebook.com/jeremy.delmore.5/picture?width=52&amp;height=52&amp;" alt="">
+										    </a>
+												<div class="btn-group pull-right m0" style="margin: 0 0 5px">
+												<button type="button" class="btn btn-money btn-default" style="padding: 0 5px"><h4 class="m0">USD</h4></button>
+												<button type="button" class="btn btn-money btn-default"><h3 class="m0">$<b>1,000</b></h3></button>
+												<button type="button" class="btn btn-money btn-default"><h4 class="m0">»</h4></button>
+											</div>
+										    <div class="media-body pull-left">
+										      <ul class="list-unstyled m0">
+											      <li class="mo f16">
+															<b style="font-size: 16px"><i class="flag16 US"></i> USD <i class="icon-exchange"></i> <i class="flag16 AU"></i> AUD</b>
+														</li>
+														<li style="margin: 3px 0;"><i class="icon-map-marker"></i> (SYD) 1 Airpot Dr </a></li>
+														<li><a class="pull-left" href="#">Available: 29/11/2013 <i class="icon-time"> 16:00</i></a></li>
+													</ul>
+										    </div>
+										  </li>
+										</ul>
+									</div>
+									
+									<div id="jjj" class="tab-pane" style="text-align: center; height: 100%; margin: 0; overflow:scroll;
+							-webkit-overflow-scrolling:touch;">
+							<form name="searchForm" class="form-horizontal" role="form">
+					                    <div class="panel panel-default mb0">
+					                        <div class="panel-heading">
+					                            <h1 class="m0" style="font-size: 80px"><i class="icon-money"></i></h1>
+					                          <h3 class="m0 panel-title">What currency do you have?</h3>
+					                        </div>
+					                        <div class="panel-body">
+					                          <div class="row" style="padding: 0">
+					                              <input name="sccd" id="Iwant" class="currencycode form-control vertical typeahead tt-query" type="text" placeholder="e.g. GBP" autocomplete="off" spellcheck="false" style="position: relative; vertical-align: top; background-color: transparent; margin-bottom: 10px">
+					                        </div>
+					                        </div>
+					                    </div>
+					                    <div class="panel panel-default" style="margin-top: -1px">
+					                        <div class="panel-heading">
+					                          <h3 class="panel-title">What currency do you want?</h3>
+					                        </div>
+					                        <div class="panel-body">
+					                          <div class="row" style="padding: 0">
+					                              <input name="sccd" id="Iwant" class="currencycode form-control vertical typeahead tt-query" type="text" placeholder="e.g. GBP" autocomplete="off" spellcheck="false" style="position: relative; vertical-align: top; background-color: transparent; margin-bottom: 10px">
+					                        </div>
+					                        </div>
+					                    </div>
+					                    <div class="panel panel-default">
+					                        <div class="panel-heading">
+					                            <h1 class="m0" style="font-size: 80px"><i class="icon-usd"></i></h1>
+					                          <h3 class="panel-title">How much currency do you want?</h3>
+					                        </div>
+					                        <div class="panel-body">
+					                            <div onmousedown="return false" class="slider slider-horizontal">
+					                                <input type="text" data-slider-min="0" data-slider-max="1000" data-slider-step="5" data-slider-value="[100,900]" id="sl3">
+					                            </div>
+					                            <div id="RGB"><h2>$100 - $900</h2></div>
+					                            <input type="hidden" name="min_amt" value="${param.min_amt}">
+					                            <input type="hidden" name="max_amt" value="${param.max_amt}">
+					                        </div>
+					                    </div>
+					                    <div class="panel panel-default">
+					                        <div class="panel-heading">
+					                            <h1 class="m0" style="font-size: 80px"><i class="icon-map-marker"></i></h1>
+					                          <h3 class="panel-title">Where do you want to look?</h3>
+					                        </div>
+					                        <div class="panel-body">
+					                          <div class="row" style="padding: 0">
+					                              <input name="where" id="where" class="form-control vertical typeahead tt-query" type="text" placeholder="e.g. Sydney, Australia" autocomplete="off" spellcheck="false" style="position: relative; vertical-align: top; background-color: transparent; margin: 0 auto">
+					                        </div>
+					                        </div>
+					                    </div>
+					                    <div class="panel panel-default">
+					                        <div class="panel-heading">
+					                            <h1 class="m0" style="font-size: 80px"><i class="icon-calendar"></i></h1>
+					                          <h3 class="panel-title">When do you want to exchange?</h3>
+					                        </div>
+					                        <div class="panel-body">
+					                          <div class="row twitter-typeahead" style="padding: 0">
+					                               <input name="date-from-to" id="reportrange" class="form-control vertical typeahead tt-query" type="text" value"" autocomplete="off" spellcheck="false" style="text-align: center; position: relative; vertical-align: top; background-color: transparent; margin: 0 auto">
+					                     </div>
+					                        </div>
+					                    </div>
+					                </form>
+										
+									 </div>
+            </div>
+<!-- Map -->           
+            <div id="themap" class="col-sm-7" style="height: 100%; padding: 0; overflow: scroll;
+-webkit-overflow-scrolling:touch;">
+                <div id="map_canvas"></div>
+            </div>
+		 </div>
+<!-- Modal Filter -->
+      
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="../bootstrap3/js/jquery.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+		<script src="../bootstrap3/js/Modernizr.js"></script>
+    <script src="../bootstrap3/js/slider.js"></script>
+    <script src="../bootstrap3/js/daterangepicker.js"></script>
+    <script src="../bootstrap3/js/reportrange.js"></script>
+    <script src="../bootstrap3/js/moment.min.js"></script>
+    <script src="../bootstrap3/js/twitter-typeahead.js"></script>
+    <script>
+        jQuery (function() {
+        $('.currencycode').typeahead({                                
+            name: 'mycodes',                                                          
+            prefetch: '../bootstrap3/codes.json',
+            limit: 10                                                                  
+          });
+        });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+	$('.vertical').keypress(function(event){
+                if(event.which == 13) { 
+                textboxes = $("input.vertical");
+                debugger;
+                currentBoxNumber = textboxes.index(this);
+                if (textboxes[currentBoxNumber + 1] != null) {
+                    nextBox = textboxes[currentBoxNumber + 1]
+                    nextBox.focus();
+                    nextBox.select();
+                    event.preventDefault();
+                    return false 
+                    }
+                }
+            });
+      })
+    </script>
+    <script type="text/javascript">
+		$(function(){
+                    
+         $('.ranges li:last').click(function() {
+              $('.daterangepicker').addClass('drpcalopen');
+          });
+                    
+    	$('#sl3').slider();
+
+    	var RGBChange = function() {
+   	  	var fpt = r.getValue()[0];
+   		var ept = r.getValue()[1];
+   		document.searchForm.min_amt.value = fpt;
+   		document.searchForm.max_amt.value = ept;
+      	$('#RGB h2').text ('$' + fpt + " - " + '$' + ept);
+    };
+
+    var r = $('#sl3').slider()
+            .on('slide', RGBChange)
+            .data('slider');
+
+    });
+    </script>
+		
+		<script type="text/javascript" src="../bootstrap3/js/iscroll.js"></script>
+
+    <script type="text/javascript" src="../bootstrap3/js/fastclick.js"></script>
+		
+    <script type="text/javascript">$(function() { FastClick.attach(document.body);});</script>
+		
+    <script>window.addEventListener('load', function() { FastClick.attach(document.body);}, false);</script>
+		
+    <script>
+      $(function() {
+      // Fix input element click problem
+      $('.dropdown-toggle input').click(function(e) {
+	e.stopPropagation();
+      });
+    });
+    </script>
+		
+		<script>
+		var navheight = 0;
+		$(window).load(function() {
+		    //get the natural page height -set it in variable above.
+
+		    navheight = $('#js_content_container').outerHeight();
+
+		    console.log("set current height on load = " + currentHeight)
+		    console.log("content height function (should be 374)  = " + contentHeight());   
+
+		});
+		</script>
+		
+		<script>
+		function hidemap(){
+			$('#results-wrapper').hide();
+		}
+		</script>
+		
+		<script>
+		function showmap(){
+			$('#results-wrapper').show();
+		}
+		</script>
+		
+
+		
+		
+	
+</body></html>

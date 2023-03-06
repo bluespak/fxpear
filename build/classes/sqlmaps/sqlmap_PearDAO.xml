@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bluespak.PearDAOImpl">
+	<insert
+		id="postPear"
+		parameterType="com.bluespak.vo.PearVO">
+		<![CDATA[
+		 insert into pear (suid, spdt, sccd, samt, trdt, bccd, exlo, exlat , exlng) 
+	   values (#{suid}, sysdate(), #{sccd}, #{samt}, #{trdt}, #{bccd}, #{exlo}, #{exlat}, #{exlng})
+		]]>	
+	</insert>	
+	<update
+		id="completePear"
+		parameterType="com.bluespak.vo.PearVO">
+		<![CDATA[
+		update pear set stat = 0, buid = #{buid}  where pseq = #{pseq}
+		]]>	
+	</update>	
+	<update
+		id="changeStatus"
+		parameterType="com.bluespak.vo.PearVO">
+		<![CDATA[
+		update pear set stat = #{stat} where pseq = #{pseq}
+		]]>	
+	</update>	
+<!-- 		
+	<select
+		id="searchPear"
+		parameterType="String"
+		resultType="com.bluespak.vo.PearVO">
+		<![CDATA[
+			select * from pear a, fxuser b 
+			where a.suid = b.id
+			and a.suid <> #{suid}  
+			and sccd like #{sccd} 
+			and bccd = #{bccd} 
+			order by spdt desc 
+		]]>	
+	</select>
+-->	
+	<select
+		id="searchPear"
+		parameterType="com.bluespak.vo.PearVO"
+		resultType="com.bluespak.vo.PearVO">
+	select @RNUM:=@RNUM+1, R.*  from (
+ 		select @RNUM:=0, Q.* from (
+ 			select * from pear a, fxuser b 
+			where a.suid = b.id
+			and sccd like #{sccd} 
+			and bccd like #{bccd} 
+			order by spdt desc 
+  		)Q
+	)R limit ${snum},${qnum} 
+	</select>	
+	
+	<select
+		id="searchPearByPosition"
+		parameterType="com.bluespak.vo.PearVO"
+		resultType="com.bluespak.vo.PearVO">
+		
+	select @RNUM:=@RNUM+1 no,FOUND_ROWS() cnt, R.*  from (
+ 		select @RNUM:=0, Q.* from (
+			select a.*,b.* from pear a, fxuser b ,(
+			SELECT ((ACOS(SIN(${initLatitute} * PI() / 180) * SIN(exlat * PI() / 180) + COS(${initLatitute} * PI() / 180) * COS(exlat * PI() / 180) * COS((${initLongitute} - exlng) * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance ,a.pseq
+			FROM pear a
+			HAVING distance <![CDATA[ <= ]]>	'10' 
+			ORDER BY distance ASC
+			) c
+			where a.pseq = c.pseq
+			and a.suid = b.id
+		<choose>
+		   <when test="sccd != 'all'">      
+					and sccd like #{sccd} 
+		  </when>
+		</choose>
+		<choose>
+		   <when test="bccd != 'all'">      
+					and bccd like #{bccd} 
+		  </when>
+		</choose>
+			order by spdt desc 
+  		)Q
+	)R limit ${snum},${qnum} 
+		
+	</select>	
+	
+<!-- 	
+// distance search.
+http://zcentric.com/2010/03/11/calculate-distance-in-mysql-with-latitude-and-longitude/
+select * from pear a, (
+SELECT ((ACOS(SIN(3.09061 * PI() / 180) * SIN(exlat * PI() / 180) + COS(3.09061 * PI() / 180) * COS(exlat * PI() / 180) * COS((101.53 - exlng) * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance ,a.pseq
+FROM pear a
+HAVING distance<='10' 
+ORDER BY distance ASC
+) b
+where a.pseq = b.pseq
+
+-->
+	<select
+		id="getMySellList"
+		parameterType="String"
+		resultType="com.bluespak.vo.PearVO">
+		<![CDATA[
+			select * from pear a, fxuser b where a.suid = b.id and a.suid = #{suid} order by spdt desc 
+		]]>	
+	</select>
+	<select
+		id="getMyBidist"
+		parameterType="String"
+		resultType="com.bluespak.vo.PearVO">
+		<![CDATA[
+			select * from pear a, fxuser b, bid c 
+			where a.suid = b.id 
+			and a.pseq = c.pseq
+			and c.buid = #{buid}
+			order by spdt desc 
+		]]>	
+	</select>	
+	<select
+		id="getPearInfo"
+		parameterType="com.bluespak.vo.PearVO"
+		resultType="com.bluespak.vo.PearVO">
+	<![CDATA[
+		select * from pear a, fxuser b where a.suid = b.id and a.pseq = #{pseq}  
+	]]>	
+	</select>		
+	
+	<select
+		id="getPearCompleteCntByUser"
+		parameterType="com.bluespak.vo.PearVO"
+		resultType="com.bluespak.vo.PearVO">
+	<![CDATA[	
+	SELECT count(1) cnt FROM fxpear.pear
+	where stat = 0
+	and (suid = #{id} or buid = #{id})
+	]]>	
+	</select>	
+</mapper>
+
+

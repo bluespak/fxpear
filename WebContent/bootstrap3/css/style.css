@@ -1,0 +1,297 @@
+
+.m0 {
+    margin: 0;
+}
+
+.mb0 {
+    margin-bottom: 0;
+}
+
+html {
+  overflow-y: scroll;
+  *overflow-x: hidden;
+}
+
+.tt-dropdown-menu,
+.gist {
+  text-align: left;
+}
+
+/* base styles */
+/* ----------- */
+
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #333;
+}
+
+.title,
+.example-name {
+  font-family: Prociono;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+/* site theme */
+/* ---------- */
+
+.title {
+  margin: 20px 0 0 0;
+  font-size: 64px;
+}
+
+.example {
+  padding: 30px 0;
+}
+
+.example-name {
+  margin: 20px 0;
+  font-size: 32px;
+}
+
+.demo {
+  position: relative;
+  *z-index: 1;
+  margin: 50px 0;
+}
+
+.typeahead,
+.tt-query,
+.tt-hint {
+    width: 356px;
+    background: #fff !important;
+    padding: 12px 12px;
+    height: 30px;
+    font-size: 21px;
+    line-height: 30px;
+    border: 4px solid rgba(60,211,168,1);
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    outline: none;
+}
+
+.typeahead {
+}
+
+.typeahead:focus {
+  border: 4px solid rgba(0,148,118,.90);
+}
+
+/*.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}*/
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    /* Chrome */
+    .tt-hint {
+     color: #9b9b9b;
+    } 
+
+    /* Safari only override */
+    ::i-block-chrome, .tt-hint {
+    color: #5b5b5b;
+    } 
+}
+
+
+.tt-dropdown-menu {
+  width: 422px;
+  margin-top: 12px;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background: #fff;
+}
+
+#footer a {
+    color: #555;
+}
+
+#footer a:hover {
+    color: #428bca;
+}
+
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding: 40px 15px 0;
+}
+.container .credit {
+  margin: 20px 0;
+}
+
+code {
+  font-size: 80%;
+}
+
+
+
+.navbar .navbar-form {
+    padding-right: 0;
+}
+
+.mytest {
+    padding-top: 80px !important;
+}
+
+.navform {
+    padding: 12px
+}
+
+.navformelement {
+    margin: 5px 0;
+    width: 200px;
+}
+
+.btn-money {
+padding: 12px 12px;
+font-size: 21px !important;
+line-height: 1;
+border-radius: 6px;
+letter-spacing: 1px;
+font-weight: 300 !important;
+}
+
+/*.panel {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+.panel-heading .panel-title {
+    font-size: 24px !important;
+    padding: 20px 0;
+    font-weight: 300;
+    background-color: #eee !important;
+    background: #eee !important;
+}
+
+.panel-default > .panel-heading {
+    background: #eee;
+    border-radius: 0;
+}*/
+
+@media only screen and (max-width: 400px) {
+    .typeahead, .tt-query, .tt-hint { max-width: 260px !important }
+}
+
+@media only screen and (max-width: 400px) {
+    .tt-dropdown-menu {
+        max-width: 286px !important;
+    }
+}
+
+.navbaritem {
+	color: #eee;
+}
+
+.navbaritem:hover {
+	color: #eee;
+	text-decoration: none;
+}
+
+#results-wrapper li {
+	background: #fff;
+}
+
+.btn-group button {
+	min-height: 52px;
+}
+
+.btn-group button .btnxs {
+	max-height: 20px;
+}
+
+#results-wrapper a {
+	color: #222;
+}
+
+#results-wrapper a:hover {
+	text-decoration: none;
+}
+
+.results-header {
+	background: #fff;
+}
+
+.exchange-page .left {
+
+}
+
+.exchange-page .right {
+	background: red;
+}
+
+.exchange-page .left-inner {
+	padding: 20px;
+}
+
+.tr-top th {
+	border-top: 0px !important;
+}
+
+@font-face {
+  font-family: 'japan';
+  src: url('../fxpear/bootstrap3/css/font/japan.ttf') format('truetype');
+}
+

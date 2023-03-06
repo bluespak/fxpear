@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    
+    <title>Jumbotron Template for Bootstrap</title>
+
+    <script>
+        function hideAddressBar()
+{
+  if(!window.location.hash)
+  {
+      if(document.height < window.outerHeight)
+      {
+          document.body.style.height = (window.outerHeight + 50) + 'px';
+      }
+ 
+      setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+  }
+}
+ 
+window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
+window.addEventListener("orientationchange", hideAddressBar );
+    </script>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../bootstrap3/css/font-awesome.css" rel="stylesheet">
+    <link href="../bootstrap3/css/style.css" rel="stylesheet">
+    <link href="../bootstrap3/css/flags16.css" rel="stylesheet">
+    <link href="../bootstrap3/css/slider.css" rel="stylesheet">
+    <link href="../bootstrap3/css/daterangepicker.css" rel="stylesheet">
+    
+    <style>
+      #map_canvas {
+        margin: 0;
+        padding: 0;
+        height: inherit;
+      }
+			
+			li {
+				padding: 10px 10px;
+				border-bottom: 1px solid #ddd;
+			}
+    </style>
+		
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+        var map;
+        function initialize() {
+          var mapOptions = {
+            zoom: 8,
+            center: new google.maps.LatLng(-34.397, 150.644),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          map = new google.maps.Map(document.getElementById('map_canvas'),
+              mapOptions);
+        }
+                
+    </script>
+    
+    <!-- custom JS -->
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bootstrap3/js/html5shiv.js"></script>
+      <script src="../bootstrap3/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body onload="initialize()">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../bootstrap3/results3-mobile.html" type="button" class="navbar-toggle btn-small">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a href="../bootstrap3/results3-mobile-map.html" type="button" class="navbar-toggle btn-small btn-primary" style="padding: 8px 12px; line-height: 1">
+            <i class="icon-map-marker"></i>
+          </a>
+
+          <a class="navbar-brand">FX PEAR</a>
+          <button type="button" data-toggle="modal" href="#myModal" class="navbar-toggle btn-small btn-primary" style="padding: 6px 10px">Filter results</button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a>Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+		<div style="padding-bottom: 40px">
+			<ul class="list-unstyled">
+					<li>
+						<button type="button" class="btn btn-money btn-default">
+							<small style="position: relative; top: 0px">USD</small><h3 class="m0">$<b>400.00</b></h3>
+						</button>
+						<h4>Madeleine-Jayne</h4>
+					</li>
+					<li><button type="button" class="btn btn-money btn-default"><small style="position: relative; top: 0px">USD</small><h3 class="m0">$<b>400.00</b></h3></button></li>
+					<li><button type="button" class="btn btn-money btn-default"><small style="position: relative; top: 0px">USD</small><h3 class="m0">$<b>400.00</b></h3></button></li>
+					<li><button type="button" class="btn btn-money btn-default"><small style="position: relative; top: 0px">USD</small><h3 class="m0">$<b>400.00</b></h3></button></li>
+					<li><button type="button" class="btn btn-money btn-default"><small style="position: relative; top: 0px">USD</small><h3 class="m0">$<b>400.00</b></h3></button></li>
+					<li><button type="button" class="btn btn-money btn-default"><small style="position: relative; top: 0px">USD</small><h3 class="m0">$<b>400.00</b></h3></button></li>
+					<li><button type="button" class="btn btn-money btn-default"><small style="position: relative; top: 0px">USD</small><h3 class="m0">$<b>400.00</b></h3></button></li>
+					<li><button type="button" class="btn btn-money btn-default"><small style="position: relative; top: 0px">USD</small><h3 class="m0">$<b>400.00</b></h3></button></li>
+					<li><button type="button" class="btn btn-money btn-default"><small style="position: relative; top: 0px">USD</small><h3 class="m0">$<b>400.00</b></h3></button></li>
+
+				</ul>
+		</div>
+		
+    <div id="themap" class=col-md-7 style="height: 100%; padding: 0">
+        <div id="map_canvas"></div>
+    </div>
+    
+<!-- Map -->           
+<!-- Modal Filter -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Filter</h4>
+            </div>
+            <div class="modal-body" style="background: #f5f5f5; text-align: center">
+							<form role="form">
+							  <div class="form-group">
+							    <label for="exampleInputEmail1">Email address</label>
+							    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+							  </div>
+							  <div class="form-group">
+							    <label for="exampleInputPassword1">Password</label>
+							    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+							  </div>
+							  <div class="form-group">
+							    <label for="exampleInputEmail1">Email address</label>
+							    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+							  </div>
+							  <div class="form-group">
+							    <label for="exampleInputPassword1">Password</label>
+							    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+							  </div>
+							  <div class="form-group">
+							    <label for="exampleInputEmail1">Email address</label>
+							    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+							  </div>
+							</form>
+        </div><!-- /.modal-content -->
+            <div class="modal-footer m0">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Update results</button>
+          </div>
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->    
+	</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="../bootstrap3/js/jquery.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+    <script src="../bootstrap3/js/slider.js"></script>
+		<script src="../bootstrap3/js/iscroll.js"></script>
+    <script src="../bootstrap3/js/daterangepicker.js"></script>
+    <script src="../bootstrap3/js/reportrange.js"></script>
+    <script src="../bootstrap3/js/moment.min.js"></script>
+    <script src="../bootstrap3/js/twitter-typeahead.js"></script>
+    <script>
+        jQuery (function() {
+        $('.currencycode').typeahead({                                
+            name: 'mycodes',                                                          
+            prefetch: '../bootstrap3/codes.json',
+            limit: 10                                                                  
+          });
+        });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+	$('.vertical').keypress(function(event){
+                if(event.which == 13) { 
+                textboxes = $("input.vertical");
+                debugger;
+                currentBoxNumber = textboxes.index(this);
+                if (textboxes[currentBoxNumber + 1] != null) {
+                    nextBox = textboxes[currentBoxNumber + 1]
+                    nextBox.focus();
+                    nextBox.select();
+                    event.preventDefault();
+                    return false 
+                    }
+                }
+            });
+      })
+    </script>
+    <script type="text/javascript">
+		$(function(){
+                    
+         $('.ranges li:last').click(function() {
+              $('.daterangepicker').addClass('drpcalopen');
+          });
+                    
+    	$('#sl3').slider();
+
+    	var RGBChange = function() {
+   	  	var fpt = r.getValue()[0];
+   		var ept = r.getValue()[1];
+   		document.searchForm.min_amt.value = fpt;
+   		document.searchForm.max_amt.value = ept;
+      	$('#RGB h2').text ('$' + fpt + " - " + '$' + ept);
+    };
+
+    var r = $('#sl3').slider()
+            .on('slide', RGBChange)
+            .data('slider');
+
+    });
+    </script>
+	
+    
+
+</body></html>

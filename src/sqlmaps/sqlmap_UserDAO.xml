@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bluespak.UserDAOImpl">
+
+	<select
+		id="selectUserList"
+		parameterType="String"
+		resultType="com.bluespak.vo.UserVO">
+<!-- 	<![CDATA[
+		SELECT `id` ,`name` FROM `user` 
+	]]>
+-->	
+	<![CDATA[
+		SELECT * FROM user
+	]]>	
+	</select>
+	
+	<select
+		id="selectUser"
+		parameterType="com.bluespak.vo.UserVO"
+		resultType="com.bluespak.vo.UserVO">
+	<![CDATA[
+		SELECT * FROM user where id = #{id} 
+	]]>	
+	</select>	
+	
+	<insert
+		id="insertUser"
+		parameterType="com.bluespak.vo.UserVO">
+		 insert into USER 
+	   values (#{id}, #{password}, #{name}, #{nation}, #{city}, #{address})
+	</insert>	
+
+	<insert
+		id="deleteUser"
+		parameterType="com.bluespak.vo.UserVO">
+		 delete from USER where id = #{id}
+	</insert>	
+		
+	<insert
+		id="updateUser"
+		parameterType="com.bluespak.vo.UserVO">
+		 update USER set 
+		 password = #{password} ,
+		 name = #{name}, 
+		 nation = #{nation}, 
+		 city = #{city}, 
+		 address = #{address}
+		 where id = #{id}
+	</insert>		
+</mapper>
+
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "dtds/spring-beans.dtd">
+<beans>
+	<bean
+		id="serverConfig"
+		class="com.bluespak.ConfigManager"
+		init-method="build">
+		<property
+			name="fileName"
+			value="server-configuration.properties" />
+	</bean>
+	   
+	<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	 <!-- 
+	<bean id="authProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+	  <property name="FxUserVO" ref="dataSource" />
+	  <property name="passwordEncoder" ref="encoder" />
+	</bean>	
+	-->
+	<bean
+		id="nationCode"
+		class="com.bluespak.utils.cd.NationCode"
+		init-method="build">
+	</bean>	
+	<bean
+		id="cityCode"
+		class="com.bluespak.utils.cd.CityCode"
+		init-method="build">
+	</bean>	
+	<bean
+		id="currencyCode"
+		class="com.bluespak.utils.cd.CurrencyCode"
+		init-method="build">
+	</bean>		
+	<bean
+		id="CurrencySymbol"
+		class="com.bluespak.utils.cd.CurrencySymbol"
+		init-method="build">
+	</bean>		
+		
+	
+</beans>

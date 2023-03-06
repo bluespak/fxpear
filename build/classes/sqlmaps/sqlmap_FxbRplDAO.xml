@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bluespak.FxbRplDAOImpl">
+
+
+	<insert
+		id="insertReply"
+		parameterType="com.bluespak.vo.FxbRplVO">
+	<![CDATA[
+			 insert into fxbrpl (fxseq, ruid, rpdt, reply)
+	   values (#{fxseq}, #{ruid}, sysdate(), #{reply})
+	]]>	
+	</insert>	
+
+	
+	<select
+		id="getReplyInfo"
+		parameterType="com.bluespak.vo.FxbRplVO"
+		resultType="com.bluespak.vo.FxbRplVO">
+	<![CDATA[
+		select * from fxbrpl a, fxuser b 
+		where a.ruid = b.id 
+		order by a.rpseq desc limit 1
+	]]>	
+	</select>	
+	
+</mapper>
+
+

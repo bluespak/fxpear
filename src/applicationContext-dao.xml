@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "dtds/spring-beans.dtd">
+<beans>
+	<bean
+		id="abstractBaseDAO"
+		class="com.bluespak.common.AbstractBaseDAO"
+		abstract="true">
+		<property
+			name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+	</bean>
+
+	<bean 
+		id="basicDAO"
+		class="com.bluespak.dao.BasicDAOImpl"
+		parent="abstractBaseDAO" />
+
+	<bean
+		id="userDAO"
+		class="com.bluespak.dao.UserDAOImpl"
+		parent="abstractBaseDAO" />
+
+	<bean
+		id="fxuserDAO"
+		class="com.bluespak.dao.FxUserDAOImpl"
+		parent="abstractBaseDAO" />
+
+	<bean
+		id="pearDAO"
+		class="com.bluespak.dao.PearDAOImpl"
+		parent="abstractBaseDAO" />
+		
+	<bean
+		id="bidDAO"
+		class="com.bluespak.dao.BidDAOImpl"
+		parent="abstractBaseDAO" />
+		
+	<bean
+		id="discussDAO"
+		class="com.bluespak.dao.DiscussDAOImpl"
+		parent="abstractBaseDAO" />		
+		
+	<bean
+		id="fxboardDAO"
+		class="com.bluespak.dao.FxBoardDAOImpl"
+		parent="abstractBaseDAO" />
+
+	<bean
+		id="fxbrplDAO"
+		class="com.bluespak.dao.FxbRplDAOImpl"
+		parent="abstractBaseDAO" />
+
+	<bean
+		id="fxbcatDAO"
+		class="com.bluespak.dao.FxbCatDAOImpl"
+		parent="abstractBaseDAO" />
+		
+</beans>

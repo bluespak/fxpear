@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "dtds/spring-beans.dtd">
+<beans>
+	<bean
+		id="userService"
+		class="com.bluespak.service.UserService"/>
+	<bean
+		id="FxuserService"
+		class="com.bluespak.service.FxUserService"/>
+	<bean
+		id="PearService"
+		class="com.bluespak.service.PearService"/>
+	<bean
+		id="BidService"
+		class="com.bluespak.service.BidService"/>
+	<bean
+		id="DiscussService"
+		class="com.bluespak.service.DiscussService"/>	
+	<bean
+		id="FxboardService"
+		class="com.bluespak.service.FxBoardService"/>
+	<bean
+		id="FxbRplService"
+		class="com.bluespak.service.FxbRplService"/>
+	  
+	<bean
+		id="MailService"
+		class="com.bluespak.utils.MailService"/>
+					
+	<bean
+		id="TwitterService"
+		class="com.bluespak.utils.TwitterService"/>					
+</beans>

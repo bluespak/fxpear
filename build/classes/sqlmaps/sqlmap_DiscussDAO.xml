@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bluespak.DiscussDAOImpl">
+
+
+	<insert
+		id="upDiscuss"
+		parameterType="com.bluespak.vo.DiscussVO">
+		 insert into discuss (pseq, whoc, cuid, comt, rgdt) 
+	   values (#{pseq}, #{whoc}, #{cuid}, #{comt}, sysdate())
+	</insert>	
+	<select
+		id="getDiscussList"
+		parameterType="String"
+		resultType="com.bluespak.vo.DiscussVO">
+
+		<![CDATA[
+			select dseq, pseq, whoc, cuid, comt, rgdt , 
+			b.fbuid b_fbuid, b.fname b_fname, b.lname b_lname
+			from discuss a,fxuser b
+			where a.cuid = b.id
+			and a.pseq = #{pseq} 
+			and a.cuid = #{cuid}
+			order by rgdt desc
+		]]>	
+	</select>
+	<select
+		id="getDiscussUserList"
+		parameterType="String"
+		resultType="com.bluespak.vo.DiscussVO">
+
+		<![CDATA[
+			select pseq, cuid, fname b_fname, lname b_lname, fbuid b_fbuid
+			from discuss a, fxuser b
+			where a.cuid = b.id 
+			and pseq =  #{pseq} 
+			group by cuid
+		]]>	
+	</select>	
+	
+</mapper>
+
+

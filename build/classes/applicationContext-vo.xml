@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "dtds/spring-beans.dtd">
+<beans>
+	<bean
+		id="basicBO"
+		class="com.bluespak.vo.BasicBOImpl">
+	</bean>
+	<bean
+		id="UserVO"
+		class="com.bluespak.vo.UserVO">
+	</bean>	
+	<bean
+		id="FxUserVO"
+		class="com.bluespak.vo.FxUserVO">
+	</bean>	
+	<bean
+		id="PearVO" 
+		class="com.bluespak.vo.PearVO">
+	</bean>		
+	<bean
+		id="BidVO" 
+		class="com.bluespak.vo.BidVO">
+	</bean>		
+	<bean
+		id="DiscussVO" 
+		class="com.bluespak.vo.DiscussVO">
+	</bean>		
+	<bean
+		id="FxBoardVO"
+		class="com.bluespak.vo.FxBoardVO">
+	</bean>	
+
+	<bean
+		id="FxbRplVO"
+		class="com.bluespak.vo.FxbRplVO">
+	</bean>	
+
+	<bean
+		id="FxbCatVO"
+		class="com.bluespak.vo.FxbCatVO">
+	</bean>	
+	
+</beans>

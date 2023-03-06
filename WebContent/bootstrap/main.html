@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign in &middot; Twitter Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+      
+    <style type="text/css">
+      body {
+        background: url(../bootstrap/img/bg.png);
+        padding-top: 40px;
+        background-color: #f5f5f5;
+      }
+      
+      .search-container {
+        background: rgba(0,0,0,0.5);
+        padding: 20px;
+        max-width: 700px;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+      }
+    </style>
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-formhelpers.css" rel="stylesheet">
+    <link href="../bootstrap/css/pear.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-formhelpers-countries.flags.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-formhelpers-currencies.flags.css" rel="stylesheet">
+    <link href="../bootstrap/css/docs.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../bootstrap/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../bootstrap/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../bootstrap/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../bootstrap/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../bootstrap/ico/favicon.png">
+  </head>
+
+  <body>
+    
+    <div class="jumbotron masthead">
+      <div class="container">
+        <h1>Get the Interbank Rate</h1>
+        <p>Currency Pear connects people who want to exchange foreign currency with each other.</p>
+        
+          <form class="form-inline">
+          <div class="bfh-selectbox bfh-currencies" data-currency="" data-flags="true" align="left">
+              <input type="hidden" value="">
+              <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
+                <span class="bfh-selectbox-option input-xlarge" data-option="">What currency do you have?</span>
+                <b class="caret"></b>
+              </a>
+              <div class="bfh-selectbox-options" align="left">
+                <input type="text" class="bfh-selectbox-filter" placeholder="search">
+                <div role="listbox">
+                <ul role="option">
+                </ul>
+                </div>
+              </div>
+            </div>
+          
+          <div class="bfh-selectbox bfh-currencies" data-currency="" data-flags="true" align="left">
+              <input type="hidden" value="">
+              <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
+                <span class="bfh-selectbox-option input-xlarge" data-option="">What currency do you want?</span>
+                <b class="caret"></b>
+              </a>
+              <div class="bfh-selectbox-options" align="left">
+                <input type="text" class="bfh-selectbox-filter" placeholder="search">
+                <div role="listbox">
+                <ul role="option">
+                </ul>
+                </div>
+              </div>
+            </div>
+          <a href="#" class="btn btn-primary btn-large">Search</a>
+          </form>
+          
+        <ul class="masthead-links">
+          <li>
+            <a href="http://github.com/twitter/bootstrap" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">GitHub project</a>
+          </li>
+          <li>
+            <a href="./getting-started.html#examples" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Examples']);">Examples</a>
+          </li>
+          <li>
+            <a href="./extend.html" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Extend']);">Extend</a>
+          </li>
+          <li>
+            Version 2.3.2
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bs-docs-social">
+      <img src="./img/f_logo.png">
+          <img src="./img/t_logo.png">
+          <img src="./img/g_logo.png">
+          <img src="./img/p_logo.png">
+    </div>
+    
+    
+ <footer class="footer">
+      <div class="container">
+        <p>Designed and built with all the love in the world by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+        <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <ul class="footer-links">
+          <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+          <li class="muted">á</li>
+          <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+          <li class="muted">á</li>
+          <li><a href="https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md">Changelog</a></li>
+        </ul>
+      </div>
+    </footer>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../bootstrap/js/jquery.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-selectbox.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-currencies.en_US.js"></script>
+    <script src="../bootstrap/js/bootstrap-formhelpers-currencies.js"></script>
+
+  </body>
+</html>
