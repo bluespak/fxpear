@@ -1,0 +1,285 @@
+package com.bluespak.utils.cd;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import com.bluespak.common.CommonCD;
+import com.bluespak.utils.LogUtils;
+
+public class NationCode implements CommonCD{
+
+	private static final HashMap<String, String> codeMap = new HashMap<String, String>();;
+	
+	public void build() throws Exception {
+		setCode();
+		LogUtils.i("Properties Manager loaded %s property entries");
+	}
+	
+	@Override
+	public void setCode() {
+	//	codeMap = new HashMap<String, String>();
+		codeMap.put("AF", "Afghanistan");
+		codeMap.put("AL", "Albania");
+		codeMap.put("DZ", "Algeria");
+		codeMap.put("AS", "American Samoa");
+		codeMap.put("AD", "Andorra");
+		codeMap.put("AO", "Angola");
+		codeMap.put("AI", "Anguilla");
+		codeMap.put("AQ", "Antarctica");
+		codeMap.put("AG", "Antigua and Barbuda");
+		codeMap.put("AR", "Argentina");
+		codeMap.put("AM", "Armenia");
+		codeMap.put("AW", "Aruba");
+		codeMap.put("AU", "Australia");
+		codeMap.put("AT", "Austria");
+		codeMap.put("AZ", "Azerbaijan");
+		codeMap.put("BH", "Bahrain");
+		codeMap.put("BD", "Bangladesh");
+		codeMap.put("BB", "Barbados");
+		codeMap.put("BY", "Belarus");
+		codeMap.put("BE", "Belgium");
+		codeMap.put("BZ", "Belize");
+		codeMap.put("BJ", "Benin");
+		codeMap.put("BM", "Bermuda");
+		codeMap.put("BT", "Bhutan");
+		codeMap.put("BO", "Bolivia");
+		codeMap.put("BA", "Bosnia and Herzegovina");
+		codeMap.put("BW", "Botswana");
+		codeMap.put("BV", "Bouvet Island");
+		codeMap.put("BR", "Brazil");
+		codeMap.put("IO", "British Indian Ocean Territory");
+		codeMap.put("VG", "British Virgin Islands");
+		codeMap.put("BN", "Brunei");
+		codeMap.put("BG", "Bulgaria");
+		codeMap.put("BF", "Burkina Faso");
+		codeMap.put("BI", "Burundi");
+		codeMap.put("CI", "C�te d'Ivoire");
+		codeMap.put("KH", "Cambodia");
+		codeMap.put("CM", "Cameroon");
+		codeMap.put("CA", "Canada");
+		codeMap.put("CV", "Cape Verde");
+		codeMap.put("KY", "Cayman Islands");
+		codeMap.put("CF", "Central African Republic");
+		codeMap.put("TD", "Chad");
+		codeMap.put("CL", "Chile");
+		codeMap.put("CN", "China");
+		codeMap.put("CX", "Christmas Island");
+		codeMap.put("CC", "Cocos (Keeling) Islands");
+		codeMap.put("CO", "Colombia");
+		codeMap.put("KM", "Comoros");
+		codeMap.put("CG", "Congo");
+		codeMap.put("CK", "Cook Islands");
+		codeMap.put("CR", "Costa Rica");
+		codeMap.put("HR", "Croatia");
+		codeMap.put("CU", "Cuba");
+		codeMap.put("CY", "Cyprus");
+		codeMap.put("CZ", "Czech Republic");
+		codeMap.put("CD", "Democratic Republic of the Congo");
+		codeMap.put("DK", "Denmark");
+		codeMap.put("DJ", "Djibouti");
+		codeMap.put("DM", "Dominica");
+		codeMap.put("DO", "Dominican Republic");
+		codeMap.put("TP", "East Timor");
+		codeMap.put("EC", "Ecuador");
+		codeMap.put("EG", "Egypt");
+		codeMap.put("SV", "El Salvador");
+		codeMap.put("GQ", "Equatorial Guinea");
+		codeMap.put("ER", "Eritrea");
+		codeMap.put("EE", "Estonia");
+		codeMap.put("ET", "Ethiopia");
+		codeMap.put("FO", "Faeroe Islands");
+		codeMap.put("FK", "Falkland Islands");
+		codeMap.put("FJ", "Fiji");
+		codeMap.put("FI", "Finland");
+		codeMap.put("MK", "Former Yugoslav Republic of Macedonia");
+		codeMap.put("FR", "France");
+		codeMap.put("FX", "France, Metropolitan");
+		codeMap.put("GF", "French Guiana");
+		codeMap.put("PF", "French Polynesia");
+		codeMap.put("TF", "French Southern Territories");
+		codeMap.put("GA", "Gabon");
+		codeMap.put("GE", "Georgia");
+		codeMap.put("DE", "Germany");
+		codeMap.put("GH", "Ghana");
+		codeMap.put("GI", "Gibraltar");
+		codeMap.put("GR", "Greece");
+		codeMap.put("GL", "Greenland");
+		codeMap.put("GD", "Grenada");
+		codeMap.put("GP", "Guadeloupe");
+		codeMap.put("GU", "Guam");
+		codeMap.put("GT", "Guatemala");
+		codeMap.put("GN", "Guinea");
+		codeMap.put("GW", "Guinea-Bissau");
+		codeMap.put("GY", "Guyana");
+		codeMap.put("HT", "Haiti");
+		codeMap.put("HM", "Heard and Mc Donald Islands");
+		codeMap.put("HN", "Honduras");
+		codeMap.put("HK", "Hong Kong");
+		codeMap.put("HU", "Hungary");
+		codeMap.put("IS", "Iceland");
+		codeMap.put("IN", "India");
+		codeMap.put("ID", "Indonesia");
+		codeMap.put("IR", "Iran");
+		codeMap.put("IQ", "Iraq");
+		codeMap.put("IE", "Ireland");
+		codeMap.put("IL", "Israel");
+		codeMap.put("IT", "Italy");
+		codeMap.put("JM", "Jamaica");
+		codeMap.put("JP", "Japan");
+		codeMap.put("JO", "Jordan");
+		codeMap.put("KZ", "Kazakhstan");
+		codeMap.put("KE", "Kenya");
+		codeMap.put("KI", "Kiribati");
+		codeMap.put("KW", "Kuwait");
+		codeMap.put("KG", "Kyrgyzstan");
+		codeMap.put("LA", "Laos");
+		codeMap.put("LV", "Latvia");
+		codeMap.put("LB", "Lebanon");
+		codeMap.put("LS", "Lesotho");
+		codeMap.put("LR", "Liberia");
+		codeMap.put("LY", "Libya");
+		codeMap.put("LI", "Liechtenstein");
+		codeMap.put("LT", "Lithuania");
+		codeMap.put("LU", "Luxembourg");
+		codeMap.put("MO", "Macau");
+		codeMap.put("MG", "Madagascar");
+		codeMap.put("MW", "Malawi");
+		codeMap.put("MY", "Malaysia");
+		codeMap.put("MV", "Maldives");
+		codeMap.put("ML", "Mali");
+		codeMap.put("MT", "Mayotte");
+		codeMap.put("MH", "Marshall Islands");
+		codeMap.put("MQ", "Martinique");
+		codeMap.put("MR", "Mauritania");
+		codeMap.put("MU", "Mauritius");
+		codeMap.put("MX", "Mexico");
+		codeMap.put("FM", "Micronesia");
+		codeMap.put("MD", "Moldova");
+		codeMap.put("MC", "Monaco");
+		codeMap.put("MN", "Mongolia");
+		codeMap.put("ME", "Montenegro");
+		codeMap.put("MS", "Montserrat");
+		codeMap.put("MA", "Morocco");
+		codeMap.put("MZ", "Mozambique");
+		codeMap.put("MM", "Myanmar");
+		codeMap.put("NA", "Namibia");
+		codeMap.put("NR", "Nauru");
+		codeMap.put("NP", "Nepal");
+		codeMap.put("NL", "Netherlands");
+		codeMap.put("AN", "Netherlands Antilles");
+		codeMap.put("NC", "New Caledonia");
+		codeMap.put("NZ", "New Zealand");
+		codeMap.put("NI", "Nicaragua");
+		codeMap.put("NE", "Niger");
+		codeMap.put("NG", "Nigeria");
+		codeMap.put("NU", "Niue");
+		codeMap.put("NF", "Norfolk Island");
+		codeMap.put("KP", "North Korea");
+		codeMap.put("MP", "Northern Marianas");
+		codeMap.put("NO", "Norway");
+		codeMap.put("OM", "Oman");
+		codeMap.put("PK", "Pakistan");
+		codeMap.put("PW", "Palau");
+		codeMap.put("PA", "Panama");
+		codeMap.put("PG", "Papua New Guinea");
+		codeMap.put("PY", "Paraguay");
+		codeMap.put("PE", "Peru");
+		codeMap.put("PH", "Philippines");
+		codeMap.put("PN", "Pitcairn Islands");
+		codeMap.put("PL", "Poland");
+		codeMap.put("PT", "Portugal");
+		codeMap.put("PR", "Puerto Rico");
+		codeMap.put("QA", "Qatar");
+		codeMap.put("RE", "Reunion");
+		codeMap.put("RO", "Romania");
+		codeMap.put("RU", "Russia");
+		codeMap.put("RW", "Rwanda");
+		codeMap.put("ST", "S�o Tom� and Pr�ncipe");
+		codeMap.put("SH", "Saint Helena");
+		codeMap.put("PM", "St. Pierre and Miquelon");
+		codeMap.put("KN", "Saint Kitts and Nevis");
+		codeMap.put("LC", "Saint Lucia");
+		codeMap.put("VC", "Saint Vincent and the Grenadines");
+		codeMap.put("WS", "Samoa");
+		codeMap.put("SM", "San Marino");
+		codeMap.put("SA", "Saudi Arabia");
+		codeMap.put("SN", "Senegal");
+		codeMap.put("RS", "Serbia");
+		codeMap.put("SC", "Seychelles");
+		codeMap.put("SL", "Sierra Leone");
+		codeMap.put("SG", "Singapore");
+		codeMap.put("SK", "Slovakia");
+		codeMap.put("SI", "Slovenia");
+		codeMap.put("SB", "Solomon Islands");
+		codeMap.put("SO", "Somalia");
+		codeMap.put("ZA", "South Africa");
+		codeMap.put("GS", "South Georgia and the South Sandwich Islands");
+		codeMap.put("KR", "South Korea");
+		codeMap.put("ES", "Spain");
+		codeMap.put("LK", "Sri Lanka");
+		codeMap.put("SD", "Sudan");
+		codeMap.put("SR", "Suriname");
+		codeMap.put("SJ", "Svalbard and Jan Mayen Islands");
+		codeMap.put("SZ", "Swaziland");
+		codeMap.put("SE", "Sweden");
+		codeMap.put("CH", "Switzerland");
+		codeMap.put("SY", "Syria");
+		codeMap.put("TW", "Taiwan");
+		codeMap.put("TJ", "Tajikistan");
+		codeMap.put("TZ", "Tanzania");
+		codeMap.put("TH", "Thailand");
+		codeMap.put("BS", "The Bahamas");
+		codeMap.put("GM", "The Gambia");
+		codeMap.put("TG", "Togo");
+		codeMap.put("TK", "Tokelau");
+		codeMap.put("TO", "Tonga");
+		codeMap.put("TT", "Trinidad and Tobago");
+		codeMap.put("TN", "Tunisia");
+		codeMap.put("TR", "Turkey");
+		codeMap.put("TM", "Turkmenistan");
+		codeMap.put("TC", "Turks and Caicos Islands");
+		codeMap.put("TV", "Tuvalu");
+		codeMap.put("VI", "US Virgin Islands");
+		codeMap.put("UG", "Uganda");
+		codeMap.put("UA", "Ukraine");
+		codeMap.put("AE", "United Arab Emirates");
+		codeMap.put("GB", "United Kingdom");
+		codeMap.put("US", "United States");
+		codeMap.put("UM", "United States Minor Outlying Islands");
+		codeMap.put("UY", "Uruguay");
+		codeMap.put("UZ", "Uzbekistan");
+		codeMap.put("VU", "Vanuatu");
+		codeMap.put("VA", "Vatican City");
+		codeMap.put("VE", "Venezuela");
+		codeMap.put("VN", "Vietnam");
+		codeMap.put("WF", "Wallis and Futuna Islands");
+		codeMap.put("EH", "Western Sahara");
+		codeMap.put("YE", "Yemen");
+		codeMap.put("ZM", "Zambia");
+		codeMap.put("ZW", "Zimbabwe");
+	}	
+	
+	public static String getText(String cd) {
+		// TODO Auto-generated method stub
+		return codeMap.get(cd);
+	}
+
+	public String getCode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static List<String> getKeyList() {
+		// TODO Auto-generated method stub
+//		HashMap<String, String> hs = (HashMap<String, String>)codeMap.clone() ;
+		List<String> list = new ArrayList<String>();
+		Iterator<String> i = codeMap.keySet().iterator();
+    	while(i.hasNext()){
+    		String key = i.next();
+    		list.add(key);
+    	}
+		return list;
+	}
+
+}
